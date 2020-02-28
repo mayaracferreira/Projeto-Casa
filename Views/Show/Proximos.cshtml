@@ -1,0 +1,42 @@
+@model IEnumerable<CasaShow.Models.Show>
+<h3><img src="/Img/fogos.gif" alt=”animated”  width="70" height="60" >Próximos Shows <img src="/Img/fogos.gif" alt=”animated”  width="70" height="60" ></h3>
+
+<table width="100%" border="1px" style="background-color:white">
+
+<thead>
+    <th>Evento <img src="/Img/microfone2.png" width="15" height="15"></th>
+    <th>Data <img src="/Img/data.png" width="15" height="15"></th>
+    <th>Casa <img src="/Img/casa.png" width="15" height="15"></th>
+    <th>Endereço <img src="/Img/local2.png" width="15" height="15"></th>
+    <th>Categoria <img src="/Img/estrela.png" width="15" height="15"></th>
+    <th>Valor <img src="/Img/dinheiro.png" width="15" height="15"></th>
+    <th>Editar</th>
+    <th>Excluir</th>
+    <th>Comprar</th>
+</thead>
+
+<body>
+
+@foreach(var proximos in Model) 
+
+
+{
+    <tr>
+   
+    <td>@proximos.Nome </td>
+    <td>@proximos.Hora</td>
+    <td>@proximos.CasaseClubes.Nome</td>
+    <td>@proximos.CasaseClubes.Endereço</td>
+    <td>@proximos.Categoria</td>
+    <td>R$: @proximos.Valor</td>     
+    <td><a href="/Show/Editar/@proximos.Id"  ><img src="/Img/editar.png" width="35" height="35" ></a></td>    
+    <td><a href="/Show/Deletar/@proximos.Id" ><img src="/Img/delete.png" width="35" height="35" ></a></td>
+    <td><a href="/Home/Ingressos/@proximos.Id" ><img src="/Img/carrinho.png" width="35" height="35" ></a></td>
+
+
+    </tr>
+}
+
+</body>
+</table>
+
